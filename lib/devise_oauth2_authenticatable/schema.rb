@@ -9,7 +9,8 @@ module Devise #:nodoc:
       # Database migration schema for Facebook Connect.
       #
       def oauth2_authenticatable
-        apply_devise_schema ::Devise.oauth2_uid_field, Integer, :limit => 8  # BIGINT unsigned / 64-bit int
+                                                              # dm-devise is hurt by this, TODO: make schema properly.
+        apply_devise_schema ::Devise.oauth2_uid_field, Integer#, :limit => 8  # BIGINT unsigned / 64-bit int
         apply_devise_schema ::Devise.oauth2_token_field, String, :limit => 149  # [128][1][20] chars
       end
 
